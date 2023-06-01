@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(178, 238, 148, 0.204);
+  }
+  /* Estilos para el contenedor principal */
+#contenedor {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Estilos para la imagen */
+#imagen {
+  flex: 0 0 570px; /* Ocupa 570px de ancho y no crece ni se encoge */
+}
+
+#imagen img {
+  width: 100%;
+  height: auto;
+  max-width: 570px;
+  max-height: 770px;
+}
+
+/* Estilos para la información */
+#informacion {
+  flex: 1; /* Ocupa el espacio restante en el contenedor */
+  margin-left: 20px; /* Margen izquierdo para separar de la imagen */
+}
+
+.encabezado {
+  margin-bottom: 20px; /* Espacio inferior entre el título y el subtítulo */
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.resumen {
+  margin-bottom: 20px;
+}
+
+.detalles {
+  display: flex;
+}
+
+.año,
+.director {
+  flex: 1; /* Ocupa el espacio disponible horizontalmente */
+}
+
+.año h1,
+.director h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.año p,
+.director p {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+

@@ -1,0 +1,337 @@
+*{margin: 0px; padding: 0px;}
+body {
+    background-color: rgba(178, 238, 148, 0.204);
+}
+div#contenedor {
+     width: 1170px;
+     margin: 0px auto;
+}
+#encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  #logo img {
+    width: 110px;
+    height: 55px;
+  }
+  
+  #menu {
+    flex-grow: 1;
+    text-align: right;
+    background-color: #333;
+  }
+  
+  #menu ul.horizontal {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #menu ul.horizontal li {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  #menu ul.horizontal li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  #menu ul.horizontal li a:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: left;
+  }
+  
+  #menu ul.horizontal li a:hover:before {
+    transform: scaleX(1);
+  }
+  
+  #menu ul.submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    background-color: #fff;
+    z-index: 9999;
+    min-width: 200px;
+    padding: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  #menu ul.horizontal li:hover > ul.submenu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  #menu ul.submenu li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #menu ul.submenu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  #menu ul.submenu li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 5px;
+  }
+  
+  #menu ul.submenu li a:hover {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(5px);
+  }  
+        p.limpiar {
+            clear: both;
+        }
+        div#contenedor-galeria  p {
+            
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        div#contenedor-galeria  h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .teexto {
+            float: right;
+            height: 330px;
+            width: 330px;
+            margin-top: 5px;
+            margin-right: 30px;
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            line-height: 1.5;
+        }
+        div.noticia h4 {
+            list-style-type: none;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        div.noticia p {
+            list-style-type: none;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        div.noticia img {
+            width: 265px;
+            height: 220px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        div.noticia {
+            width: 277px;
+            height: 300px;
+            margin: 7px;
+            float: left;
+            position: relative;
+        }
+        div.noticia img:hover {
+            filter: grayscale(100%);
+        }
+        div.noticia:hover {
+            scale: 1.1;
+        }
+        div.noticia > div.lupa {
+            background-image: url("img/gallery-item-icons.png");
+            height: 42px;
+			width: 42px;
+			display: block;
+			float: right;
+			background-color: white;
+            position: absolute;
+            bottom: 80px;
+            right: 7px;
+
+        }
+        div.noticia > div.detalles {
+            background-image: url("img/gallery-item-icons.png");
+            background-position: -42px 0px;
+            height: 42px;
+			width: 42px;
+			display: block;
+			float: right;
+			background-color: white;
+            position: absolute;
+            bottom: 80px;
+            right: 32px;
+        }
+        div.noticia > div.detalles a {
+            display: block;
+            height: 42px;width: 42px;
+        }
+        div.noticia > div.detalles {
+            margin-right: 15px;
+        }
+        div.noticia div.detalles:hover {
+            background-color: red;
+        }
+        div.noticia div.lupa:hover {
+            background-color: red;
+        }
+        div#galeria {
+            width: 700px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transition: all 6s linear 0s;
+        }
+        div#galeria img {
+            width: 700px;
+            height: 308px;
+        }
+        div#galeria:hover {
+            transform: rotateX(360deg);
+            transition: all 6s linear 0s;
+        }
+        div#galeria div {
+            position: absolute;
+        }
+        div#galeria div:nth-child(1) {
+        transform: rotateX(90deg) translateZ(152px);
+        }  
+        div#galeria div:nth-child(2) {
+            transform: rotateX(-90deg) translateZ(152px);
+        }
+        div#galeria div:nth-child(3) {
+            transform: rotateX(180deg) translateZ(152px);
+        }
+        div#galeria div:nth-child(4) {
+            transform: translateZ(152px);
+        }
+        div {
+
+        }
+        div#pie {
+            height: 300px;
+            width: 1170px;
+            position: absolute;
+            background-color: black;
+        }
+        div.pie1 {
+            width: 290px;
+            height: 250px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+        div.pie2 {
+            width: 290px;
+            height: 250px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+        div.pie3 {
+            width: 290px;
+            height: 250px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+        div.pie4 {
+            width: 290px;
+            height: 250px;
+            position: relative;
+            display: block;
+            float: left;
+        }
+        div.pie1 h4 {
+            color: white;
+            text-align: center;
+            display: block;
+            position: absolute;
+            top: 40px;
+            left: 70px;
+        }
+        div.pie1>a {
+			height: 46px;
+			width: 254px;
+			display: block;
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+			float: left;
+			background-image: url("img/social-icons.png");
+		}
+
+		div.pie1>a:hover {
+			background-position: 0px -47px;
+		}
+        div.pie1 img {
+            position: absolute;
+            display: block;
+            bottom: 100px;
+            right: 60px;
+            width: 180px;
+            height: 80px;
+        }
+        div.pie2 #mapa iframe{
+            height: 190px;
+            width: 290px;
+            margin-right: 45px;
+            margin-top: 40px;
+          }
+        div.menu_final ul.horizontal2 {
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+            bottom: 0px;
+            position: relative;
+            float: right;
+        }
+        div.menu_final ul.horizontal2 li {
+            width: 100px;
+			height: 55px;
+			float: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+        }
+        div.menu_final ul.horizontal2 li a {
+            display: block;
+            color: white;
+			text-decoration: none;
+			height: 20px;
+			padding: 10px 20px;
+            
+        }
+        div.menu_final ul.horizontal2 li a:hover {
+            color: rgb(75, 97, 197);
+        }
+        div.pie4 iframe{
+            margin-right: 15px;
+            margin-top: 30px;
+          }
+          
