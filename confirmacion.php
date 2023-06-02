@@ -5,6 +5,7 @@
 //si se ha pulsado el botón de enviar formulario
 if (isset($_POST["enviar"])){
 	
+	
 		//se crea la variable "de" y se le asigna lo que el usuario ha escrito en el campo "de" del formulario
 		$de=$_POST["nombre"];
 		
