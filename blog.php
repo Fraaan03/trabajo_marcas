@@ -1,14 +1,16 @@
 <?php include("conexion.php");
 
-if (isset($_GET["id_articulo"])) {
-    $id_articulo = $_GET["id_articulo"];
+if (isset($_GET["id_categorias"])) {
+    $id_categorias = $_GET["id_categorias"];
     //si la url lleva la variable id_categoria, mostramos los libros de dicha categoría
-    $articulos = $conexion->query("SELECT * FROM articulos WHERE id_articulo=$id_articulo");
+    $articulos = $conexion->query("SELECT * FROM articulos WHERE id_categorias=$id_categorias");
 } else {
     //si no lleva la variable, mostramos todos los libros
     $articulos = $conexion->query("SELECT * FROM articulos");
 }
 $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC LIMIT 4");
+
+$most_categoria = $conexion->query("SELECT * FROM categorias");
 
 ?>
 
@@ -19,7 +21,7 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="blog.css">
     <title>Peliculas</title>
 </head>
 
@@ -28,7 +30,7 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
 <div id="contenedor">
 <div id="encabezado">
             <div id="logo">
-              <img src="../img/Captura de pantalla 2023-05-20 203059.png" alt="logo">
+              <img src="img/Captura de pantalla 2023-05-20 203059.png" alt="logo">
             </div>
             <div id="menu">
               <ul class="horizontal">
@@ -38,20 +40,22 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
                     <li><a href="#">Inicio</a></li>
                   </ul>
                 </li>
-                <li><a href="formulario.html">Log In</a>
-                  <ul class="submenu">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Inicio</a></li>
-                  </ul>
-                </li>
+                <li><a href="formulario.html">Log In</a></li>
                 <li><a href="#">Gallery</a>
                   <ul class="submenu">
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Inicio</a></li>
                   </ul>
                 </li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="../html/contacto.html">Contact</a></li>
+                <li><a href="blog.php">Blog</a>
+                <ul class="submenu">
+                    <li><a href="https://frangil.com.es/TRABAJO_MARCAS/blog.php?id_categorias=1">Accion</a></li>
+                    <li><a href="https://frangil.com.es/TRABAJO_MARCAS/blog.php?id_categorias=2">Ciencia Ficcion</a></li>
+                    <li><a href="https://frangil.com.es/TRABAJO_MARCAS/blog.php?id_categorias=3">Drama</a></li>
+                    <li><a href="https://frangil.com.es/TRABAJO_MARCAS/blog.php?id_categorias=4">Romance</a></li>
+                  </ul>
+            </li>
+                <li><a href="contacto.html">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -70,7 +74,7 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
 
                 <div class="noticias">
                     <div class="imagen">
-                        <img src="../img/<?php echo $imagen; ?>" width="200px" height="200px" />
+                        <img src="img/<?php echo $imagen; ?>" width="200px" height="200px" />
                     </div>
                     <div class="informacion">
                     <div class="titulo">
@@ -121,6 +125,21 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
         <div class="derecha">
             <div id="categoria">
                 <h3>CATEGORIAS</h3>
+                <?php
+                while ($fila = $most_categoria->fetch_array()) {
+                    $id_categorias = $fila[0];
+                    $nombre_categorias = $fila[1];
+                    ?>
+                    <div class="categoria_listar">
+                        <div class="titulo_categoria">
+                            <h2>
+                                <a href="./blog.php?id_categorias=<?php echo $id_categorias; ?>"><?php echo $nombre_categorias; ?></a>
+                            </h2>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
             </div>
             <div id="popular">
                 <h3>POPULAR POST</h3>
@@ -132,7 +151,7 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
                 ?>
                 <div class="noticias-popular">
                     <div class="imagen-popular">
-                        <img src="../img/<?php echo $imagen; ?>" width="50px" height="50px" />
+                        <img src="img/<?php echo $imagen; ?>" width="50px" height="50px" />
                     </div>
                     <div class="informacion-popular">
                     <div class="titulo-popular">
@@ -154,9 +173,6 @@ $most_popular = $conexion->query("SELECT * FROM articulos ORDER BY visitas DESC 
 
 
             </div>
-
-
-
             <div id="more">
                 <h3>MORE INFO</h3>
             </div>
