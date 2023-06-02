@@ -15,6 +15,7 @@ if(mysqli_num_rows($result) > 0) {
   $director = $row['director'];
   $imagen = $row['imagen'];
 }
+
 else {
 
   $ID = '';
